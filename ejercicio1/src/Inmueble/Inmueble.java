@@ -13,11 +13,13 @@ public abstract class Inmueble {
     private int tamanio = 0;
     private int cantidadAmbientes = 0;
     private String tipoDeOperacion = "";
+    private Zona zona;
     
-    public Inmueble(int tamanio,int cantidadAmbientes,String tipoDeOperacion){
+    public Inmueble(int tamanio,int cantidadAmbientes,String tipoDeOperacion,Zona zona){
         this.tamanio = tamanio;
         this.cantidadAmbientes = cantidadAmbientes;
         this.tipoDeOperacion = tipoDeOperacion;
+        this.zona = zona;
     }
     
     public int getCantidadAmbientes(){
@@ -27,8 +29,16 @@ public abstract class Inmueble {
     public int getTamanio(){
         return this.tamanio;
     }
+    
+    public Zona getZona(){
+        return this.zona;
+    }
+    
+    public void setZona(Zona zona){
+        this.zona = zona;
+    }
  
-    public abstract int valorInmueble();
+    public abstract double valorInmueble();
     
 }
 

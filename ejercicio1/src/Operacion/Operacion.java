@@ -23,6 +23,6 @@ public abstract class Operacion {
     public void setInmueble(Inmueble inmueble){
         this.inmueble = inmueble;
     }
-   
+    
     public abstract double comision();
 }

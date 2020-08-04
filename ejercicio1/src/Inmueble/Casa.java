@@ -11,23 +11,23 @@ package Inmueble;
  */
 public class Casa extends Inmueble{
     
-    private int valorCasa = 0;
+    private double valorCasa = 0;
             
-    public Casa(int tamanio,int cantidadAmbientes,String tipoDeOperacion){
-        super(tamanio,cantidadAmbientes,tipoDeOperacion);
+    public Casa(int tamanio,int cantidadAmbientes,String tipoDeOperacion,Zona zona){
+        super(tamanio,cantidadAmbientes,tipoDeOperacion,zona);
      }
     
-    public int getValorCasa(){
+    public double getValorCasa(){
         return this.valorCasa;
     }
     
-    public void setValorCasa(int valorCasa){
+    public void setValorCasa(double valorCasa){
         this.valorCasa = valorCasa;
     }
    
     @Override
-    public int valorInmueble(){
-        return this.valorCasa;
+    public double valorInmueble(){
+        return this.valorCasa + this.getZona().getPlus();
     }
 }
 

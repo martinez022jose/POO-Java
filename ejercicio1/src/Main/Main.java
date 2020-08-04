@@ -6,6 +6,7 @@
 package Main;
 import Inmueble.*;
 import Operacion.*;
+import Empleado.*;
 /**
  *
  * @author Jose
@@ -13,15 +14,23 @@ import Operacion.*;
 public class Main {
     
     public static void main(String [] args){
-        Departamento dep = new Departamento(100,6,"alquiler");
-        Casa casa = new Casa(100,5,"alquiler");
-        System.out.println(dep.valorInmueble());
-        System.out.println(casa.valorInmueble());
-        casa.setValorCasa(100);
-        System.out.println("----------------------");
-        System.out.println(casa.valorInmueble());
         
-        Compra comp = new Compra(casa,10);
-        System.out.println((comp.comision()));
+        //Instanciamos 
+        Zona zona1 = new Zona("mataderos",30);
+        Departamento dep = new Departamento(100,6,"alquiler",zona1);
+        Casa casa = new Casa(100,5,"alquiler",zona1);
+        Compra op1 = new Compra(casa,10);
+        Empleado emp = new Empleado();
+
+        //Operaciones
+        casa.setValorCasa(100);
+        emp.realizaOperacion(op1);
+        
+        //Listar
+        System.out.println(emp.getOperacionesRealizadas());
+        System.out.println(emp.totalDeComisiones());
+      
+        System.out.println("----------------------");
+  
     }
 }

@@ -10,10 +10,10 @@ package Inmueble;
  * @author Jose
  */
 public class Departamento extends Inmueble{
-    private int valorDepartamento = 0;
+    private double valorDepartamento = 0;
     
-    public Departamento(int tamanio,int cantidadAmbientes,String tipoDeOperacion){
-        super(tamanio,cantidadAmbientes,tipoDeOperacion);
+    public Departamento(int tamanio,int cantidadAmbientes,String tipoDeOperacion,Zona zona){
+        super(tamanio,cantidadAmbientes,tipoDeOperacion,zona);
         this.definirValorDepartamento();
     }
     
@@ -22,7 +22,7 @@ public class Departamento extends Inmueble{
     }
     
     @Override
-    public int valorInmueble(){
-        return this.valorDepartamento;
+    public double valorInmueble(){
+        return this.valorDepartamento + this.getZona().getPlus();
     }
 }

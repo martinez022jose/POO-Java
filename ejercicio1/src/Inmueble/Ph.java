@@ -11,10 +11,10 @@ package Inmueble;
  */
 public class Ph extends Inmueble{
     
-    private int valorPh = 0;
+    private double valorPh = 0;
     
-    public Ph(int tamanio,int cantidadAmbientes,String tipoDeOperacion){
-        super(tamanio,cantidadAmbientes,tipoDeOperacion);
+    public Ph(int tamanio,int cantidadAmbientes,String tipoDeOperacion,Zona zona){
+        super(tamanio,cantidadAmbientes,tipoDeOperacion,zona);
         this.definirValorPh();
     }
     
@@ -27,8 +27,8 @@ public class Ph extends Inmueble{
      }
     
     @Override
-    public int valorInmueble(){
-        return this.valorPh;
+    public double valorInmueble(){
+        return this.valorPh + this.getZona().getPlus();
     }  
     
 }
