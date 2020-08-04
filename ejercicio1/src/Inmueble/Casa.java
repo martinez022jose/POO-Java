@@ -24,9 +24,7 @@ public class Casa extends Inmueble{
     public void setValorCasa(int valorCasa){
         this.valorCasa = valorCasa;
     }
-    
-    
-    
+   
     @Override
     public int valorInmueble(){
         return this.valorCasa;

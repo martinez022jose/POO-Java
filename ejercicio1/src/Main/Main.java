@@ -5,6 +5,7 @@
  */
 package Main;
 import Inmueble.*;
+import Operacion.*;
 /**
  *
  * @author Jose
@@ -16,5 +17,11 @@ public class Main {
         Casa casa = new Casa(100,5,"alquiler");
         System.out.println(dep.valorInmueble());
         System.out.println(casa.valorInmueble());
+        casa.setValorCasa(100);
+        System.out.println("----------------------");
+        System.out.println(casa.valorInmueble());
+        
+        Compra comp = new Compra(casa,10);
+        System.out.println((comp.comision()));
     }
 }
