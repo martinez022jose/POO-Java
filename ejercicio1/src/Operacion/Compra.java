@@ -10,7 +10,7 @@ import Inmueble.*;
  * @author Jose
  */
 public class Compra extends Operacion{
-    private double porcentaje;
+    private double porcentaje = 0.0;
     private double comision;
     
     public Compra(Inmueble inmueble,double porcentaje){

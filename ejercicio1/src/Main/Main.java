@@ -7,6 +7,8 @@ package Main;
 import Inmueble.*;
 import Operacion.*;
 import Empleado.*;
+import CriterioValidacion.*;
+import Inmobiliaria.*;
 /**
  *
  * @author Jose
@@ -20,15 +22,28 @@ public class Main {
         Departamento dep = new Departamento(100,6,"alquiler",zona1);
         Casa casa = new Casa(100,5,"alquiler",zona1);
         Compra op1 = new Compra(casa,10);
-        Empleado emp = new Empleado();
-
+        Compra op2 = new Compra(casa,20);
+        Empleado emp = new Empleado("Jose");
+        Empleado emp2 = new Empleado("Pedro");
+        Inmobiliaria inmo = new Inmobiliaria();
+        CriterioSegunCantidadDeOperacionesCerradas criterio1 = new CriterioSegunCantidadDeOperacionesCerradas();
+        CriterioMayorComisionRecibida criterio2 = new CriterioMayorComisionRecibida();
         //Operaciones
         casa.setValorCasa(100);
         emp.realizaOperacion(op1);
+        emp.realizaOperacion(op2);
+        emp.realizaOperacion(op2);
+        emp.realizaOperacion(op2);
+        emp2.realizaOperacion(op2);
+        emp2.realizaOperacion(op2);
+        emp2.realizaOperacion(op2);
+        inmo.agregarCriterio(criterio2);
+        inmo.agregarEmpleado(emp);
+        inmo.agregarEmpleado(emp2);
         
         //Listar
-        System.out.println(emp.getOperacionesRealizadas());
-        System.out.println(emp.totalDeComisiones());
+        System.out.println(inmo.nombresEmpleados());
+       
       
         System.out.println("----------------------");
   
