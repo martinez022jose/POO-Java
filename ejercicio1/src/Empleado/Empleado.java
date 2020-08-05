@@ -41,7 +41,7 @@ public class Empleado{
         if(!(this.reservados.contains(inmueble))){
             this.reservados.add(inmueble);
         }else{
-            System.out.println("El elemento se encuentra como reservado");
+            System.out.println("El elemento ya se encuentra como reservado");
         }
     }
     

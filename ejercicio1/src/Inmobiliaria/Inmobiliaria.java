@@ -9,8 +9,8 @@ import Empleado.*;
 import CriterioValidacion.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+//import java.util.Map;
+//import java.util.stream.Collectors;
 /**
  *
  * @author Jose
@@ -28,6 +28,12 @@ public class Inmobiliaria {
         this.criterios = new ArrayList<>();
     }
     
+    public List<Operacion> getHistorialOperaciones(){
+        this.empleados.forEach((emp)->{
+            this.historialOperaciones.addAll(emp.getOperacionesRealizadas());
+        });
+        return this.historialOperaciones;
+    }
     public Empleado mejorEmpleado(){
         this.criterios.forEach((criterio)->{
             this.mejorEmpleado = criterio.mejorEmpleado(this.empleados);
@@ -45,6 +51,7 @@ public class Inmobiliaria {
     
     public void agregarEmpleado(Empleado empleado){
         this.empleados.add(empleado);
+   
     }
     
     public void agregarOperacion(Operacion operacion){
@@ -59,7 +66,7 @@ public class Inmobiliaria {
         return emp.getReservas().containsAll(emp2.getInmueblesConcretados()) || emp2.getReservas().containsAll(emp.getInmueblesConcretados());
     }
     public boolean existeProblemaEntre(Empleado emp,Empleado emp2){
-        return this.cerraronEnMismaZona(emp,emp2) && this.concretoAlgunReservadoDeotro(emp,emp2);
+        return (this.cerraronEnMismaZona(emp,emp2) && this.concretoAlgunReservadoDeOtro(emp,emp2));
             
     }
     

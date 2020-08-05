@@ -32,8 +32,7 @@ public class Main {
         casa.setValorCasa(100);
         emp.realizaOperacion(op1);
         emp.realizaOperacion(op2);
-        emp.realizaOperacion(op2);
-        emp.realizaOperacion(op2);
+       
         emp2.realizaOperacion(op2);
         emp2.realizaOperacion(op2);
         emp2.realizaOperacion(op2);
@@ -42,7 +41,7 @@ public class Main {
         inmo.agregarEmpleado(emp2);
         
         //Listar
-        System.out.println(inmo.nombresEmpleados());
+        System.out.println(inmo.getHistorialOperaciones());
        
       
         System.out.println("----------------------");
