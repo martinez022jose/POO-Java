@@ -16,6 +16,7 @@ public class Compra extends Operacion{
     public Compra(Inmueble inmueble,double porcentaje){
         super(inmueble);
         this.porcentaje = porcentaje/100;
+        
     }
     
     public void definirComision(){

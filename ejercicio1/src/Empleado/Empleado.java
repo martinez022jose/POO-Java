@@ -70,8 +70,17 @@ public class Empleado{
         return this.operacionesRealizadas;
     }
     
+    public boolean verificarOperacion(Operacion op){
+        return (Compra.class.isInstance(op) && Local.class.isInstance(op.getInmueble()));
+    }
+    
+   
     public void realizaOperacion(Operacion operacion){
-        this.operacionesRealizadas.add(operacion);
+        if(this.verificarOperacion(operacion)){
+            System.out.println("No puede relizar dicha operacion");
+        }else{
+           this.operacionesRealizadas.add(operacion); 
+        }
     }
     
     public int totalDeReservas(){

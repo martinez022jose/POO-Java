@@ -11,10 +11,11 @@ package Inmueble;
  */
 public class Casa extends Inmueble{
     
-    private double valorCasa = 0;
+    private double valorCasa;
             
-    public Casa(int tamanio,int cantidadAmbientes,String tipoDeOperacion,Zona zona){
+    public Casa(int tamanio,int cantidadAmbientes,String tipoDeOperacion,Zona zona,double valorCasa){
         super(tamanio,cantidadAmbientes,tipoDeOperacion,zona);
+        this.valorCasa = valorCasa;
      }
     
     public double getValorCasa(){
