@@ -29,6 +29,22 @@ public class Minion{
         return this.bananas;
     }
     
+    public void setBananas(int bananas){
+        this.bananas = bananas;
+    }
+    
+    public List<String> tiposDeArmas(){
+        List<String> nombresArmas = new ArrayList<>();
+        this.armas.forEach((arma)->{
+            nombresArmas.add(arma.getNombre());
+        });
+        return nombresArmas;
+    }
+    
+    public boolean tieneRayoCongelante(){
+        return this.tiposDeArmas().contains("Rayo congelante");
+    }
+    
     public void agregarArma(Arma arma){
         this.armas.add(arma);
     }
@@ -74,6 +90,15 @@ public class Minion{
             this.esAmarillo = false;
         }
     }
+    
+   
+
+    @Override
+    public String toString(){
+        return "Minion{" + "esAmarillo=" + this.esAmarillo + ", bananas=" + this.bananas + ", armas=" + this.armas+ ", totalPotencia=" + this.totalPotencia + '}';
+    }
+    
+    
     
     
 }

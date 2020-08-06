@@ -25,4 +25,11 @@ public class Arma {
     public String getNombre(){
         return this.nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Arma{" + "nombre=" + this.nombre + ", potencia=" + this.potencia + '}';
+    }
+    
+    
 }

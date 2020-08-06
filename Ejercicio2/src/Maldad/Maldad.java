@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package Maldad;
-
+import Villano.*;
 /**
  *
  * @author Jose
  */
-public class Maldad {
+public abstract class Maldad {
     
+    public abstract void ejecutarMaldad(Villano villano);
 }

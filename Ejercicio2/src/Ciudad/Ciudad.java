@@ -10,5 +10,17 @@ package Ciudad;
  * @author Jose
  */
 public class Ciudad {
+    private int temperatura;
     
+    public Ciudad(int temperatura){
+        this.temperatura = temperatura;
+    }
+    
+    public int getTemperatura(){
+        return this.temperatura;
+    }
+    
+    public void setTemperatura(int temperatura){
+        this.temperatura = temperatura;
+    }
 }

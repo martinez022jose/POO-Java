@@ -6,23 +6,52 @@
 package Villano;
 import Minion.*;
 import Arma.*;
+import Maldad.*;
+import Ciudad.*;
 import java.util.List;
 import java.util.ArrayList;
+
 /**
  *
  * @author Jose
  */
 public class Villano {
+    private Ciudad ciudad;
     private List<Minion> ejercitoMinion = null;
+    private List<Maldad> maldadesRealizadas = null;
     
-    public Villano(){
+    public Villano(Ciudad ciudad){
         this.ejercitoMinion = new ArrayList<>();
+        this.maldadesRealizadas = new ArrayList<>();
+        this.ciudad = ciudad;
     }
     
+    public void agregarMinion(Minion min){
+        this.ejercitoMinion.add(min);
+    }
     public void nuevoMinion(){
         Arma arma = new Arma("Congelante",10);
         Minion minion = new Minion(5);
         minion.agregarArma(arma);
         this.ejercitoMinion.add(minion);
     }
+    
+    public Ciudad getCiudad(){
+        return this.ciudad;
+    }
+    
+    public List<Minion> getEjercitoMinion(){
+        return this.ejercitoMinion;
+    }
+   
+    public void realizarMaldad(Maldad maldad){
+       maldad.ejecutarMaldad(this);
+    
+    }
+
+    @Override
+    public String toString() {
+        return "Villano{" + "ciudad=" + ciudad + ", ejercitoMinion=" + ejercitoMinion + ", maldadesRealizadas=" + maldadesRealizadas + '}';
+    }
+    
 }
