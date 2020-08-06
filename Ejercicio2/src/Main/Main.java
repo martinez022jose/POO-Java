@@ -20,8 +20,9 @@ public class Main {
         
         min.agregarArma(arm1);
         min.alimentarMinion(10);
-        
-        System.out.println(min.getBananas());
+        min.tomarPosima();
+        min.alimentarMinion(10);
+        System.out.println(min.nivelDeConcetracion());
     }
     
 }
