@@ -15,9 +15,9 @@ import java.util.List;
  */
 public class Congelar extends Maldad{
     
-    public List<Minion> obtenerEjercitoNecesario(Villano villano){
+    public List<Minion> minionsRequeridos(List<Minion> minions){
         List<Minion> ejercitoNecesario = new ArrayList<>();
-        villano.getEjercitoMinion().forEach((minion)->{
+        minions.forEach((minion)->{
             if(minion.tieneRayoCongelante() && minion.nivelDeConcetracion() <500){
                 ejercitoNecesario.add(minion);
             }
@@ -25,11 +25,12 @@ public class Congelar extends Maldad{
         return ejercitoNecesario;
     }
     
+    
     @Override
     public void ejecutarMaldad(Villano villano){
         int temperaturaCiudad = villano.getCiudad().getTemperatura() - 30;
         villano.getCiudad().setTemperatura(temperaturaCiudad);
-        this.obtenerEjercitoNecesario(villano).forEach((minion)->{
+        this.minionsRequeridos(villano.getEjercitoMinion()).forEach((minion)->{
             int bananasTotales = minion.getBananas() + 10;
             minion.setBananas(bananasTotales);
         });

@@ -10,6 +10,7 @@ import Maldad.*;
 import Ciudad.*;
 import java.util.List;
 import java.util.ArrayList;
+import ExceptionPersonalizada.*;
 
 /**
  *
@@ -26,8 +27,13 @@ public class Villano {
         this.ciudad = ciudad;
     }
     
-    public void agregarMinion(Minion min){
-        this.ejercitoMinion.add(min);
+    public void agregarMinion(Minion min) throws ExceptionPersonalizada{
+        if(this.ejercitoMinion.contains(min)){
+            throw new ExceptionPersonalizada("Dicho minion ya se encuentra en el ejercito de minions");
+        }else{
+            this.ejercitoMinion.add(min);
+        }
+    
     }
     public void nuevoMinion(){
         Arma arma = new Arma("Congelante",10);
@@ -46,7 +52,6 @@ public class Villano {
    
     public void realizarMaldad(Maldad maldad){
        maldad.ejecutarMaldad(this);
-    
     }
 
     @Override

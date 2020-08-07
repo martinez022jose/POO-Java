@@ -45,6 +45,10 @@ public class Minion{
         return this.tiposDeArmas().contains("Rayo congelante");
     }
     
+    public boolean tieneRayoEncogedor(){
+        return this.tiposDeArmas().contains("Rayo encogedor");
+    }
+    
     public void agregarArma(Arma arma){
         this.armas.add(arma);
     }
