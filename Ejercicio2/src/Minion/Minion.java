@@ -17,12 +17,22 @@ public class Minion{
     private int bananas;
     private List<Arma> armas = null;
     private int totalPotencia;
+    private int cantidadDeMisiones;
     
     public Minion(int bananas){
         this.bananas = bananas;
         this.armas = new ArrayList<>();
         this.esAmarillo = true;
+        this.cantidadDeMisiones =0;
         
+    }
+    
+    public int getCantidadMisiones(){
+        return this.cantidadDeMisiones;
+    }
+    
+    public void setCantidadMisiones(int cantidad){
+        this.cantidadDeMisiones = cantidad;
     }
     
     public int getBananas(){

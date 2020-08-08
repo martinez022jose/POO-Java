@@ -22,13 +22,14 @@ public class SueroMutante extends ObjetoPreciado{
     
     @Override
     public void efectosDeRobo(Villano villano){
-        this.minionsRequeridos(villano.getEjercitoMinion()).forEach((minion)->{
+        this.minionsNecesarios(villano.getEjercitoMinion()).forEach((minion)->{
             minion.tomarPosima();
         });
         villano.getCiudad().getObjetosPreciados().remove(this);
     }
     
-    public List<Minion> minionsRequeridos(List<Minion> minions){
+    @Override
+    public List<Minion> minionsNecesarios(List<Minion> minions){
         List<Minion> miniosRequeridos = new ArrayList<>();
         minions.forEach((minion)->{
             if( minion.esPeligroso() && minion.getBananas() > 100 && minion.nivelDeConcetracion() > 23){

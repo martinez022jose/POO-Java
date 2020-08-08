@@ -6,7 +6,7 @@
 package ObjetoPreciado;
 
 import Arma.*;
-import Minion.Minion;
+import Minion.*;
 import java.util.ArrayList;
 import java.util.List;
 import Villano.*;
@@ -24,13 +24,14 @@ public class LaLuna extends ObjetoPreciado{
     @Override
     public void efectosDeRobo(Villano villano){
         Arma arm = new Arma("Rayo congelante",10);
-        this.minionsRequeridos(villano.getEjercitoMinion()).forEach((minion)->{
+        this.minionsNecesarios(villano.getEjercitoMinion()).forEach((minion)->{
             minion.agregarArma(arm);
         });
         villano.getCiudad().eliminarObjetoPreciado(this);
     }
     
-    public List<Minion> minionsRequeridos(List<Minion> minions){
+    @Override
+    public List<Minion> minionsNecesarios(List<Minion> minions){
         List<Minion> miniosRequeridos = new ArrayList<>();
         minions.forEach((minion)->{
             if( minion.esPeligroso() && minion.tieneRayoEncogedor()){

@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class Congelar extends Maldad{
     
+    @Override
     public List<Minion> minionsRequeridos(List<Minion> minions){
         List<Minion> ejercitoNecesario = new ArrayList<>();
         minions.forEach((minion)->{

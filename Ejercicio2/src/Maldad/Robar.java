@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package Maldad;
+import Minion.Minion;
 import Villano.*;
 import ObjetoPreciado.*;
+import java.util.List;
 
 /**
  *
@@ -16,6 +18,11 @@ public class Robar extends Maldad{
    
     public Robar(ObjetoPreciado obj){
         this.obj = obj;
+    }
+    
+    @Override
+    public List<Minion> minionsRequeridos(List<Minion> minions){
+        return this.obj.minionsNecesarios(minions);
     }
     
     @Override

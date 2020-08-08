@@ -25,13 +25,14 @@ public class Piramide extends ObjetoPreciado{
     
     @Override
     public void efectosDeRobo(Villano villano){
-        this.minionsRequeridos(villano.getEjercitoMinion()).forEach((minion)->{
+        this.minionsNecesarios(villano.getEjercitoMinion()).forEach((minion)->{
            minion.setBananas(minion.getBananas() + 10);
         });
         villano.getCiudad().eliminarObjetoPreciado(this);
     }
-  
-    public List<Minion> minionsRequeridos(List<Minion> minions){
+    
+    @Override
+    public List<Minion> minionsNecesarios(List<Minion> minions){
         List<Minion> miniosRequeridos = new ArrayList<>();
         minions.forEach((minion)->{
             if(minion.esPeligroso() && minion.nivelDeConcetracion() < this.altura/2){

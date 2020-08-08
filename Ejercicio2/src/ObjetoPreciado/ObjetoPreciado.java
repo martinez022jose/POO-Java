@@ -7,7 +7,9 @@ package ObjetoPreciado;
 
 
 
+import Minion.Minion;
 import Villano.*;
+import java.util.List;
 /**
  *
  * @author Jose
@@ -16,4 +18,7 @@ public abstract class ObjetoPreciado {
   
     public abstract void efectosDeRobo(Villano villano);
     
+    public abstract List<Minion> minionsNecesarios(List<Minion> minions);
+
+   
 }

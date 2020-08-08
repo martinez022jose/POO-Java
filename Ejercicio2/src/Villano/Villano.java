@@ -27,14 +27,55 @@ public class Villano {
         this.ciudad = ciudad;
     }
     
-    public void agregarMinion(Minion min) throws ExceptionPersonalizada{
-        if(this.ejercitoMinion.contains(min)){
-            throw new ExceptionPersonalizada("Dicho minion ya se encuentra en el ejercito de minions");
+    public void agregarMinion(Minion min){
+        try{
+            if(this.ejercitoMinion.contains(min)){
+            throw new ExceptionPersonalizada("Dicho minion ya se encuentra en el ejercito de minions"+ min.toString());
         }else{
             this.ejercitoMinion.add(min);
         }
     
+        }catch(ExceptionPersonalizada e){
+            System.out.println(e.getMessage());
+        }
     }
+    public void contarMision(Maldad maldad){
+       maldad.minionsRequeridos(this.ejercitoMinion).forEach((minion)->{
+           minion.setCantidadMisiones(minion.getCantidadMisiones() + 1);   
+       });
+    }
+    
+    public Minion conMasCantidadDeMisiones(){
+        Minion mayor = this.ejercitoMinion.get(0);
+        this.maldadesRealizadas.forEach((maldad)->{
+                this.contarMision(maldad);
+                this.ejercitoMinion.forEach((minion)->{
+                    if(minion.getCantidadMisiones() > mayor.getCantidadMisiones()){
+                        mayor = minion;
+                    }
+                });
+        });
+        
+        return mayor;
+                
+                
+    }
+  
+    public Minion minionMasUtilizado(){
+        Minion masUtilizado = this.ejercitoMinion.get(0);
+        this.maldadesRealizadas.forEach(maldad->{
+            this.contarMision(maldad);
+            this.ejercitoMinion.forEach((minion) -> {
+                if(minion.getCantidadMisiones() > masUtilizado.getCantidadMisiones()){
+                    masUtilizado =  minion;
+                }
+            });
+                    
+        });
+        return masUtilizado;
+    }
+        
+    
     public void nuevoMinion(){
         Arma arma = new Arma("Congelante",10);
         Minion minion = new Minion(5);
@@ -52,6 +93,7 @@ public class Villano {
    
     public void realizarMaldad(Maldad maldad){
        maldad.ejecutarMaldad(this);
+       this.maldadesRealizadas.add(maldad);
     }
 
     @Override
