@@ -17,7 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        Stark casa1 = new Stark(100,"Somos Stark");
+        Stark casa1 = new Stark(10,"Somos Stark");
         Lannister casa2 = new Lannister(300000,"Somos Lanister");
         GuardiaDeLaNoche casa3 = new GuardiaDeLaNoche(20,"Somos guardianes");
        
@@ -28,8 +28,9 @@ public class Main {
         
         casa1.agregarMiembro(per1);
         casa1.agregarMiembro(per2);
+        per1.casarseCon(per4);
         
-        System.out.println(per1.patrimonioTotal());
+        System.out.println(per1.sonTodosConyuguesDeCasaRica());
         
     }
     
