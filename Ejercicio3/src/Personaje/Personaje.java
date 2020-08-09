@@ -8,8 +8,9 @@ package Personaje;
 import java.util.ArrayList;
 import java.util.List;
 import Casa.*;
+import Conspiracion.Conspiracion;
 import ManejoDeErrores.CustomException;
-import java.util.HashMap;
+import Personalidad.*;
 import java.util.stream.Collectors;
 
 /**
@@ -22,6 +23,7 @@ public class Personaje {
     private List<Personaje> acompaniantes;
     private boolean estaVivo;
     private int oroAliados;
+    private Personalidad personalidad;
     
     public Personaje(Casa casa){
         this.estaVivo = true;
@@ -30,12 +32,36 @@ public class Personaje {
         this.acompaniantes= new ArrayList<>();
     }
     
+    public boolean getEstaVivo(){
+        return this.estaVivo;
+    }
+    
+    public void setEstadoDeVida(boolean estado){
+        this.estaVivo = estado;
+    }
+    
+    public void setPersonalidad(Personalidad personalidad){
+        this.personalidad = personalidad;
+    }
+    
     public List<Personaje> getConyugues(){
         return this.conyugues;
     }
     
+    public List<Personaje> getAcompaniantes(){
+        return this.acompaniantes;
+    }
+    
     public void agregarConyugue(Personaje conyugue){
-        this.conyugues.add(conyugue);
+        try{
+            if(this.conyugues.contains(conyugue)){
+                throw new CustomException("El conyugue :"+conyugue.toString()+ "Ya se encuentra en la lista");
+            }else{
+                this.conyugues.add(conyugue);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public int oroTotalAliados(){
@@ -46,7 +72,15 @@ public class Personaje {
     }
     
     public void agregarAcompaniante(Personaje per){
-        this.acompaniantes.add(per);
+        try{
+            if(this.acompaniantes.contains(per)){
+                throw new CustomException("La lista de acompañantes ya tiene el persoanje"+per.toString());
+            }else{
+                this.acompaniantes.add(per);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public boolean estaSolo(){
@@ -57,9 +91,13 @@ public class Personaje {
         return !this.conyugues.stream().map(e->e.casa).collect(Collectors.toList()).stream().map(c->c.esRica()).collect(Collectors.toList()).contains(false);
     }
     
-    //public boolean esPeligroso(){
-       // return this.estaVivo && (this.oroTotalAliados() >= 10000 ||) 
-   // }
+    public boolean tieneAlgunAliadoPeligroso(){
+        return !this.getAliados().stream().map(a->a.esPeligroso()).collect(Collectors.toList()).isEmpty();
+    }
+    
+    public boolean esPeligroso(){
+       return this.estaVivo && (this.oroTotalAliados() >= 10000 || this.sonTodosConyuguesDeCasaRica() || this.tieneAlgunAliadoPeligroso()); 
+    }
     
     public List<Personaje> getAliados(){
         List<Personaje> aliados = new ArrayList<>();
@@ -97,5 +135,10 @@ public class Personaje {
         return this.casa.permiteMatrimonioEntre(this, otra);
     }
     
+    public void actuarComoComplot(Personaje objetivo,Conspiracion conspiracion){
+        this.personalidad.realizarAccionComplot(objetivo, conspiracion);
+    }
+    
+  
    
 }

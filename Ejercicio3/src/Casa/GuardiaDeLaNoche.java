@@ -10,9 +10,9 @@ import Personaje.*;
  * @author Jose
  */
 public class GuardiaDeLaNoche extends Casa{
+    
     public GuardiaDeLaNoche(int patrimonio, String nombreCiudad){
         super(patrimonio, nombreCiudad);
-        
     }
     
     @Override
