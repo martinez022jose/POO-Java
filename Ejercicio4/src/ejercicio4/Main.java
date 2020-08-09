@@ -8,6 +8,7 @@ package ejercicio4;
 
 import Adulto.*;
 import Elementos.*;
+import Legion.Legion;
 import Ninio.Ninio;
 
 /**
@@ -22,19 +23,22 @@ public class Main {
     public static void main(String[] args) {
         
         //Instancia
-        Ninio ninio = new Ninio(3,10);
-        Ninio ninio2 = new Ninio(3,20);
+        Ninio ninio = new Ninio(3,100);
+        Ninio ninio2 = new Ninio(300,200);
         Comun adulto = new Comun();
         Terrorifico traje = new Terrorifico();
+        Legion legion = new Legion();
         
         //Operaciones
-        ninio.agregarElemento(traje);
-        ninio.agregarElemento(traje);
-        adulto.agregarNinioQueLoAsusto(ninio2);
-        ninio.asustarA(adulto);
+        ninio2.agregarElemento(traje);
+        //ninio.agregarElemento(traje);
+        //adulto.agregarNinioQueLoAsusto(ninio2);
+        //ninio.asustarA(adulto);
+        legion.agregarMiembro(ninio);
+        legion.agregarMiembro(ninio2);
         
         //Listar
-        System.out.println(ninio.getCantidadDeCaramelos());
+        System.out.println(legion.getLider());
     }
     
 }

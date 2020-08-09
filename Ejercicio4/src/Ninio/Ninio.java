@@ -47,4 +47,10 @@ public class Ninio {
             this.incrementarCaramelos(adulto.darCaramelosA(this));
         }
     }
+
+    @Override
+    public String toString() {
+        return "Ninio{" + "actitud=" + actitud + ", cantidadCarmelos=" + cantidadCarmelos + ", elementos=" + elementos + '}';
+    }
+    
 }
