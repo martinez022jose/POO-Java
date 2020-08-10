@@ -5,6 +5,7 @@
  */
 package Adulto;
 
+import CustomException.CustomException;
 import Ninio.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,7 +29,15 @@ public class Comun extends Adulto{
     }
     
     public void agregarNinioQueLoAsusto(Ninio ninio){
-        this.niniosQueLoAsustaron.add(ninio);
+        try{
+            if(this.niniosQueLoAsustaron.contains(ninio)){
+                throw new CustomException("El ninio: "+ninio+" ya se encuentra en la lista");
+            }else{
+                this.niniosQueLoAsustaron.add(ninio);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public int getTolerancia(){

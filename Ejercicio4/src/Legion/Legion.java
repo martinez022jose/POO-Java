@@ -36,7 +36,15 @@ public class Legion {
     }
     
     public void agregarMiembro(Ninio miembro){
-        this.miembros.add(miembro);
+        try{
+            if(this.miembros.contains(miembro)){
+                throw new CustomException("El elemento: "+miembro+" ya se encuentra en la lista");
+            }else{
+                this.miembros.add(miembro);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public List<Ninio> getMiembros(){

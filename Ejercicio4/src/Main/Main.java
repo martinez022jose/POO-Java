@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejercicio4;
+package Main;
 
 
 import Adulto.*;
@@ -47,15 +47,15 @@ public class Main {
         barrio1.agregarNinio(ninio3);
         barrio1.agregarNinio(ninio4);
         ninio2.agregarElemento(traje);
-        ninio.agregarElemento(traje);
+        //ninio.agregarElemento(traje);
         ninio3.agregarElemento(maqui);
         //adulto.agregarNinioQueLoAsusto(ninio2);
         //ninio.asustarA(adulto);
         //legion.agregarMiembro(ninio);
         //legion.agregarMiembro(ninio2);
-        
+        ninio.comerCaramelos(110);
         //Listar
-        System.out.println(barrio1.elementosDeNinios());
+        System.out.println(ninio.getCantidadDeCaramelos());
     }
     
 }
