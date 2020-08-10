@@ -17,14 +17,20 @@ import java.util.stream.Collectors;
  * @author Jose
  */
 public class Legion {
-    private List<Ninio> miembros;
+    private List<Ninio> miembros = new ArrayList<>();
     
-    public Legion(){
-        this.miembros = new ArrayList<>();
+    public Legion(List<Ninio> miembros){
+        if(miembros.size()>2){
+            this.miembros.addAll(miembros);
+        }
     }
     
     public void agregarMiembro(Ninio miembro){
         this.miembros.add(miembro);
+    }
+    
+    public List<Ninio> getMiembros(){
+        return this.miembros;
     }
     
     public int totalCapacidadSusto(){

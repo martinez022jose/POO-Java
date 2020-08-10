@@ -10,6 +10,8 @@ import Adulto.*;
 import Elementos.*;
 import Legion.Legion;
 import Ninio.Ninio;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,22 +25,27 @@ public class Main {
     public static void main(String[] args) {
         
         //Instancia
+        List<Ninio> ninios = new ArrayList<>();
         Ninio ninio = new Ninio(3,100);
         Ninio ninio2 = new Ninio(300,200);
+        Ninio ninio3 = new Ninio(300,200);
+        ninios.add(ninio);
+        ninios.add(ninio2);
+        ninios.add(ninio3);
         Comun adulto = new Comun();
         Terrorifico traje = new Terrorifico();
-        Legion legion = new Legion();
+        Legion legion = new Legion(ninios);
         
         //Operaciones
         ninio2.agregarElemento(traje);
         //ninio.agregarElemento(traje);
         //adulto.agregarNinioQueLoAsusto(ninio2);
         //ninio.asustarA(adulto);
-        legion.agregarMiembro(ninio);
-        legion.agregarMiembro(ninio2);
+        //legion.agregarMiembro(ninio);
+        //legion.agregarMiembro(ninio2);
         
         //Listar
-        System.out.println(legion.getLider());
+        System.out.println(legion.getMiembros());
     }
     
 }
