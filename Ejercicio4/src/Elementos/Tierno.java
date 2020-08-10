@@ -15,4 +15,9 @@ public class Tierno extends Traje {
     public int nivelSusto(){
         return 2;
     }
+
+    @Override
+    public String toString() {
+        return "Tierno{" + '}';
+    }
 }

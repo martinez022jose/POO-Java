@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Elementos;
+package Barrio;
 
 /**
  *
  * @author Jose
  */
-public class Maquillaje extends Elemento{
-    
-    @Override
-    public int nivelSusto(){
-        return 5;
-    }
+public class CustomExeption extends Exception {
 
-    @Override
-    public String toString() {
-        return "Maquillaje{" + '}';
+    public CustomExeption(String string) {
     }
+    
 }

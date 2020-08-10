@@ -15,4 +15,9 @@ public class Terrorifico extends Traje{
     public int nivelSusto(){
         return 5;
     }
+
+    @Override
+    public String toString() {
+        return "Terrorifico{" + '}';
+    }
 }

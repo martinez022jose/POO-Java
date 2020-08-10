@@ -26,6 +26,10 @@ public class Ninio {
         this.elementos = new ArrayList<>();
     }
     
+    public List<Elemento> getElementos(){
+        return this.elementos;
+    }
+    
     public void agregarElemento(Elemento element){
         this.elementos.add(element);
     }

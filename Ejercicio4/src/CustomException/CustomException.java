@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Elementos;
+package CustomException;
 
 /**
  *
  * @author Jose
  */
-public class Maquillaje extends Elemento{
+public class CustomException extends Exception{
     
-    @Override
-    public int nivelSusto(){
-        return 5;
-    }
-
-    @Override
-    public String toString() {
-        return "Maquillaje{" + '}';
+    public CustomException(String mensaje){
+        super(mensaje);
     }
 }

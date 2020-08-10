@@ -5,6 +5,8 @@
  */
 package Legion;
 
+import Adulto.Adulto;
+import CustomException.CustomException;
 import Ninio.Ninio;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,10 +20,18 @@ import java.util.stream.Collectors;
  */
 public class Legion {
     private List<Ninio> miembros = new ArrayList<>();
+    private List<Legion> legionesAliadas;
     
     public Legion(List<Ninio> miembros){
-        if(miembros.size()>2){
-            this.miembros.addAll(miembros);
+        try{
+            if(miembros.size()>2){
+                this.miembros.addAll(miembros);
+                this.legionesAliadas = new ArrayList<>();
+            }else{
+                throw new CustomException("No tiene cantidad minima de miembros");
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
         }
     }
     
@@ -44,5 +54,11 @@ public class Legion {
     public Ninio getLider(){
         this.miembros.sort(Comparator.comparing(Ninio::capacidadDeSusto).reversed());
         return this.miembros.get(0);
+    }
+    
+    public void asustarA(Adulto adulto){
+        this.miembros.forEach((miembro)->{
+            miembro.asustarA(adulto);
+        });
     }
 }
