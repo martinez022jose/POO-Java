@@ -28,11 +28,13 @@ public class Main {
         }
     }
     
-    static void pedirNotas(Scanner escaner,List<Integer> notas){
-        for (Integer nota : notas) {
-            int notaAux = escaner.nextInt();
-            notas.add(notaAux);
-        }
+    static void pedirNotas(Scanner escaner,int totalNotas,List<Integer> notas){
+        notas.clear();
+        List<Integer> valores = new ArrayList<>();
+        for(int j = 0;j<totalNotas;j++){
+            valores.add(escaner.nextInt());
+         }
+        notas.addAll(valores);
         
     }
     
@@ -46,17 +48,14 @@ public class Main {
             escaner.nextLine();
             System.out.println("apodo");
             apodo = escaner.nextLine();
+            //notas.clear();
             System.out.println("Ingrese Notas");
-            for(int j = 0;j<totalNotas;j++){
-                int nota = escaner.nextInt();
-                notas.add(nota);
-            }
+            pedirNotas(escaner,totalNotas,notas);
             alumnos.add(new Alumno(nombre,edad,apodo,notas));
+
         }
     }
     
-    
-
     /**
      * @param args the command line arguments
      */
@@ -75,7 +74,7 @@ public class Main {
         System.out.println("Cantidad de notas a registrar");
         totalNotas = escaner.nextInt();
         
-        pedirRegistro( nombre,edad, apodo, notas,alumnos, escaner, totalDeRegistros, totalNotas);
+        pedirRegistro(nombre,edad, apodo, notas,alumnos, escaner, totalDeRegistros, totalNotas);
         
         System.out.println("Lista de registros");
         listarElementos(alumnos);
