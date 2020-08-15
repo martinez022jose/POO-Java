@@ -35,6 +35,7 @@ public class Comun extends Individuo{
         }
     }
     
+    
    
 
     

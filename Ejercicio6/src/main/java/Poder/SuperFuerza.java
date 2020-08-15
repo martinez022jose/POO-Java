@@ -5,6 +5,8 @@
  */
 package Poder;
 
+import Individuo.Individuo;
+
 /**
  *
  * @author Jose
@@ -22,7 +24,7 @@ public class SuperFuerza extends Poder {
     }
     
     @Override 
-    public void incrementar(){
+    public void incrementarRespecto(Individuo otro){
         this.potencia+=1;
     }
 }

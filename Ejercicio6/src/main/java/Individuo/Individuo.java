@@ -8,6 +8,7 @@ package Individuo;
 import Arma.Arma;
 import Poder.Poder;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -17,21 +18,24 @@ import java.util.List;
 public abstract class Individuo {
     private int nivelDeEntrenamiento;
     private List<Arma> armas;
+    private List<Individuo> historialVictorias;
     private int potencia;
-    private Poder poder;
+    
     
     public Individuo(int nivelDeEntrenamiento){
         this.nivelDeEntrenamiento = nivelDeEntrenamiento;
         this.armas = new ArrayList<>();
+        this.historialVictorias = new ArrayList<>();
         
     }
     
-    public void setPoder(Poder poder){
-        this.poder = poder;
+    public List<Individuo> getHistorial(){
+        return this.historialVictorias;
     }
     
-    public Poder getPoder(){
-        return this.poder;
+    public Individuo enfrentamientoMasDuro(){
+        this.historialVictorias.sort(Comparator.comparing(Individuo::getPotencia).reversed());
+        return this.historialVictorias.get(0);
     }
     
     public void incrementarNivelDeEntrenamiento(){
@@ -63,14 +67,18 @@ public abstract class Individuo {
         this.potencia = potencia;
     }
     
+    public boolean esDeConfianza(){
+        return this.getHistorial().size() > 10 && this.getNivelDeEntrenamiento() < 1000;
+    }
+    
     public int getpotenciaMasAlta(){
         return this.armas.stream().mapToInt(arma->arma.getPotencia()).max().getAsInt();
     }
     
     public abstract void  ganaPeleaContra(Individuo otro);
     
-     public abstract int getPotencia();
+    public abstract int getPotencia();
      
-  
+    
    
 }

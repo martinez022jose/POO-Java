@@ -5,6 +5,8 @@
  */
 package Poder;
 
+import Individuo.Individuo;
+
 /**
  *
  * @author Jose
@@ -18,11 +20,11 @@ public class Sabiduria extends Poder {
     
     @Override
     public int otorgaPotencia(){
-        return 3 * cantidadBatallas;
+        return 3 * this.cantidadBatallas;
     }
     
     @Override 
-    public void incrementar(){
+    public void incrementarRespecto(Individuo otro){
         
     }
 }

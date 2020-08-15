@@ -6,6 +6,7 @@
 package Individuo;
 
 import Poder.Poder;
+import Poder.*;
 
 /**
  *
@@ -35,7 +36,21 @@ public class Heroe extends Individuo{
     @Override
     public void  ganaPeleaContra(Individuo otro){
         if(this.getPotencia() > otro.getPotencia()){
-           // this.getPoder().incrementarRespecto(otro);
+            this.getPoder().incrementarRespecto(otro);
         }
+    }
+    
+    @Override
+    public boolean esDeConfianza(){
+        if(SuperFuerza.class.isInstance(this.poder)){
+            return super.esDeConfianza() && this.poder.otorgaPotencia() < 100;
+        }
+        
+        if(Sabiduria.class.isInstance(this.poder)){
+            return super.esDeConfianza() && this.getHistorial().size() > 20;
+        }
+        //if(Mistico.class.isInstance(this.poder)){
+        return false;
+        //}
     }
 }

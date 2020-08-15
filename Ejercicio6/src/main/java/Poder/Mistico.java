@@ -5,6 +5,7 @@
  */
 package Poder;
 
+import Individuo.Comun;
 import Individuo.Heroe;
 import Individuo.Individuo;
 import java.util.ArrayList;
@@ -40,8 +41,11 @@ public class Mistico extends Poder{
     
     @Override 
     public void incrementarRespecto(Individuo otro){
+        if(Comun.class.isInstance(otro)){
+            this.poderesAcumulados.add(new SuperFuerza(5));
+        }
         if(Heroe.class.isInstance(otro)){
-            //this.poderesAcumulados.addAll(otro.)
+            this.poderesAcumulados.add(new Sabiduria(10));
         }
     }
 }
