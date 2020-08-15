@@ -9,6 +9,20 @@ package Poder;
  *
  * @author Jose
  */
-public class Sabiduria {
+public class Sabiduria extends Poder {
+    private int cantidadBatallas;
     
+    public Sabiduria(int cantidadBatallas){
+        this.cantidadBatallas = cantidadBatallas;
+    }
+    
+    @Override
+    public int otorgaPotencia(){
+        return 3 * cantidadBatallas;
+    }
+    
+    @Override 
+    public void incrementar(){
+        
+    }
 }

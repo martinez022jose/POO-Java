@@ -9,6 +9,20 @@ package Poder;
  *
  * @author Jose
  */
-public class SuperFuerza {
+public class SuperFuerza extends Poder {
+    private int potencia;
     
+    public SuperFuerza(int potencia){
+       this.potencia = potencia; 
+    }
+    
+    @Override
+    public int otorgaPotencia(){
+        return this.potencia;
+    }
+    
+    @Override 
+    public void incrementar(){
+        this.potencia+=1;
+    }
 }

@@ -15,25 +15,27 @@ import java.util.stream.IntStream;
  *
  * @author Jose
  */
-public class Comun {
-    private int nivelDeEntrenamiento;
-    private List<Arma> armas;
-    private int potencia;
+public class Comun extends Individuo{
     
-    public Comun(){
-        this.armas = new ArrayList<>();
-    }
-    public int definirPotencia(){
-        return this.potencia = nivelDeEntrenamiento + this.potenciaDeArmasMasLetal();
-    }
     
+    public Comun(int nivelDeEntrenamiento){
+        super(nivelDeEntrenamiento);
+    }
+  
+    @Override
     public int getPotencia(){
-        return this.definirPotencia();
+        return this.getNivelDeEntrenamiento() + this.getpotenciaMasAlta();
     }
     
-    public int potenciaDeArmasMasLetal(){
-        return this.armas.stream().mapToInt(arma->arma.getPotencia()).max().getAsInt();
+    
+    @Override
+    public void  ganaPeleaContra(Individuo otro){
+        if(this.getPotencia() > otro.getPotencia()){
+            this.incrementarNivelDeEntrenamiento();
+        }
     }
+    
+   
 
     
 }
