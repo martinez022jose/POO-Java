@@ -12,6 +12,9 @@ package Arma;
 public class Arma {
     private int potencia;
     
+    public Arma(int potencia){
+        this.potencia = potencia;
+    }
     public int getPotencia(){
         return this.potencia;
     }

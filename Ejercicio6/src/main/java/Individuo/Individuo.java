@@ -6,6 +6,7 @@
 package Individuo;
 
 import Arma.Arma;
+import CustomException.CustomException;
 import Poder.Poder;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -60,7 +61,15 @@ public abstract class Individuo {
     }
     
     public void agregarArma(Arma arma){
-        this.armas.add(arma);
+        try{
+            if(this.armas.contains(arma)){
+                throw new CustomException("El arma ya pertenece a dicha lista");
+            }else{
+                this.armas.add(arma);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public void setPotencia(int potencia){
