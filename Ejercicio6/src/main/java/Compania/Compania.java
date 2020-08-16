@@ -34,4 +34,21 @@ public class Compania {
     public int totalPotencia(){
         return this.empleados.stream().filter(empleado->empleado.esDeConfianza()).collect(Collectors.toList()).stream().mapToInt(empleado->empleado.getPotencia()).sum();
     }
+    
+    public boolean ElNuestroLeGanaAtodos(Individuo individuo,Compania otro){
+        boolean estado = false;
+        for(Individuo empleado: otro.getEmpleados()){
+            if(individuo.getPotencia() > empleado.getPotencia() && individuo.getHistorial().size() > empleado.getHistorial().size()){
+                estado = true;
+            }
+        }
+        return estado;
+    }
+    
+    public boolean destruyeAOtraCompania(Compania otra){
+        for(Individuo empleado: this.empleados){
+             return this.ElNuestroLeGanaAtodos(empleado, otra);
+        }
+        return false;
+    }
 }
