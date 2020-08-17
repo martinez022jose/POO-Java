@@ -40,17 +40,25 @@ public abstract class Individuo {
     }
     
     public void incrementarNivelDeEntrenamiento(){
-        if(this.nivelDeEntrenamiento < 1000){
-            this.nivelDeEntrenamiento+=1;
-        }else{
-            this.nivelDeEntrenamiento = 1000;
+        try{
+            if(this.nivelDeEntrenamiento < 1000){
+                this.nivelDeEntrenamiento+=1;
+            }else{
+                throw new CustomException("Se supero el limite de aumento con respecto al nivel de entrenamiento");
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
         }
     }
+        
     
     public int getNivelDeEntrenamiento(){
         return this.nivelDeEntrenamiento;
     }
     
+    public void setNivelDeEntrenamiento(int nivelNuevo){
+        this.nivelDeEntrenamiento = nivelNuevo;
+    }
     
     public List<Arma> getArmas(){
         return this.armas;

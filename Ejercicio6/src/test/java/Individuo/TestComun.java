@@ -6,6 +6,7 @@
 package Individuo;
 
 import Arma.Arma;
+import CustomException.CustomException;
 //import junit.framework.Assert;
 //import junit.framework.Assert;
 import org.junit.After;
@@ -74,6 +75,27 @@ public class TestComun {
         individuo.agregarArma(arma2);
         individuo.agregarArma(arma3);
         Assert.assertTrue(!individuo.esDeConfianza());
+    }
+    
+    @Test
+    public void puedoIncrementarNivelDeEntrenamiento(){
+        individuo.incrementarNivelDeEntrenamiento();
+        Assert.assertEquals(11,individuo.getNivelDeEntrenamiento());
+    }
+    
+    @Test
+    public void noPuedoIncrementarNivelDeEntrenamiento(){
+        individuo.setNivelDeEntrenamiento(1000);
+        individuo.incrementarNivelDeEntrenamiento();
+        Assert.assertEquals(1000,individuo.getNivelDeEntrenamiento());
+    }
+    
+    @Test
+    public void devuelveCorrectamentePotenciaArmaMasLetal(){
+        individuo.agregarArma(arma1);
+        individuo.agregarArma(arma2);
+        individuo.agregarArma(arma3);
+        Assert.assertEquals(40,individuo.getpotenciaMasAlta());
     }
     
     
