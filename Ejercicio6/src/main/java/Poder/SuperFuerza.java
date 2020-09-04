@@ -5,17 +5,33 @@
  */
 package Poder;
 
-import Individuo.Individuo;
+import Individuo.*;
+
+
 
 /**
  *
  * @author Jose
  */
-public class SuperFuerza extends Poder {
+public class SuperFuerza extends Poder{
     private int potencia;
     
     public SuperFuerza(int potencia){
-       this.potencia = potencia; 
+       this.potencia = potencia;
+   
+    }
+    
+    public int getPotencia(){
+        return this.potencia;
+    }
+    
+    public void setPotencia(int potenciaNueva){
+        this.potencia = potenciaNueva;
+    }
+
+    @Override
+    public String toString() {
+        return "SuperFuerza{" + "potencia=" + potencia + '}';
     }
     
     @Override

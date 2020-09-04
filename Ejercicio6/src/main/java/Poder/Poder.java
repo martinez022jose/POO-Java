@@ -5,15 +5,18 @@
  */
 package Poder;
 
-import Individuo.Individuo;
+import Individuo.*;
 
 /**
  *
  * @author Jose
  */
-public abstract class Poder {
+public abstract class Poder{
+    
     public abstract int otorgaPotencia();
     
     public abstract void incrementarRespecto(Individuo otro);
+    
+    
 
 }

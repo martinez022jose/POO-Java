@@ -5,9 +5,7 @@
  */
 package Poder;
 
-import Individuo.Comun;
-import Individuo.Heroe;
-import Individuo.Individuo;
+import Individuo.*;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -5,9 +5,9 @@
  */
 package Individuo;
 
-import Arma.Arma;
+import Arma.*;
 import CustomException.CustomException;
-import Poder.Poder;
+import Poder.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -28,6 +28,18 @@ public abstract class Individuo {
         this.armas = new ArrayList<>();
         this.historialVictorias = new ArrayList<>();
         
+    }
+    
+    public void agregarAlHistorial(Individuo individuo){
+        try{
+            if(this.historialVictorias.contains(individuo)){
+                throw new CustomException("El elemento: "+individuo+" ya se encuentra en la lista");
+            }else{
+                this.historialVictorias.add(individuo);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public List<Individuo> getHistorial(){
@@ -89,7 +101,11 @@ public abstract class Individuo {
     }
     
     public int getpotenciaMasAlta(){
-        return this.armas.stream().mapToInt(arma->arma.getPotencia()).max().getAsInt();
+        if(this.armas.isEmpty()){
+            return 0;
+        }else{
+             return this.armas.stream().mapToInt(arma->arma.getPotencia()).max().getAsInt();
+        }
     }
     
     public abstract void  ganaPeleaContra(Individuo otro);

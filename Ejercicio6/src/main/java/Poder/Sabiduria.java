@@ -5,7 +5,7 @@
  */
 package Poder;
 
-import Individuo.Individuo;
+import Individuo.*;
 
 /**
  *

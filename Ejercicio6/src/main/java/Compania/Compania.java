@@ -5,6 +5,7 @@
  */
 package Compania;
 
+import CustomException.CustomException;
 import Individuo.*;
 import Individuo.Individuo;
 import java.util.ArrayList;
@@ -25,6 +26,30 @@ public class Compania {
     
     public List<Individuo> getEmpleados(){
         return this.empleados;
+    }
+    
+    public void agregarEmpleado(Individuo empleado){
+        try{
+            if(this.empleados.contains(empleado)){
+                throw new CustomException("El empleado: "+ empleado +"ya se encuentra en la lista");
+            }else{
+                this.empleados.add(empleado);
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void eliminarEmpleado(Individuo empleado){
+        try{
+            if(!this.empleados.contains(empleado)){
+                throw new CustomException("El empleado: "+ empleado +"no se encuentra en la lista");
+            }else{
+                this.empleados.remove(this.empleados.indexOf(empleado));
+            }
+        }catch(CustomException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public List<Individuo> enfrentamientoMasDuros(){
