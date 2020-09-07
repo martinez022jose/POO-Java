@@ -11,7 +11,9 @@ import Individuo.*;
  *
  * @author Jose
  */
-public abstract class Poder{
+public interface Poder{
+    
+    public abstract int getPotencia();
     
     public abstract int otorgaPotencia();
     

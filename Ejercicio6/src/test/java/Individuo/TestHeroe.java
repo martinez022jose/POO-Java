@@ -6,7 +6,9 @@
 package Individuo;
 
 import Arma.*;
-import Poder.*;
+import Poder.Mistico;
+import Poder.Sabiduria;
+import Poder.SuperFuerza;
 
 //import org.junit.After;
 //import org.junit.AfterClass;
@@ -24,20 +26,25 @@ import org.junit.Test;
 public class TestHeroe {
     private Heroe heroe;
     private Heroe heroe2;
-    private Heroe heroeSuper;
+    private Heroe heroe3;
     private SuperFuerza superFuerza;
     private SuperFuerza superFuerza2;
+    private Mistico mistico;
     private Arma arma1;
     private Arma arma2;
     private Arma arma3;
     
     @Before
     public void init(){
-        superFuerza2 = new SuperFuerza(10);
-        superFuerza = new SuperFuerza(5);
-        heroe = new Heroe(10, superFuerza);
-        heroe2 = new Heroe(20,superFuerza);
-        heroeSuper = new Heroe(30,superFuerza2);
+        //instanciamos poderes
+        superFuerza = new SuperFuerza(10);
+        superFuerza2 = new SuperFuerza(5);
+        mistico= new Mistico();
+        
+        //Instanciamos Personajes
+        heroe = new Heroe(10,superFuerza2 );
+        heroe2 = new Heroe(20,superFuerza );
+        heroe3 = new Heroe(30,superFuerza );
         arma1 = new Arma(10);
         arma2 = new Arma(20);
         arma3 = new Arma(40);
@@ -73,8 +80,15 @@ public class TestHeroe {
     
     @Test
     public void ganaPeleaYIncrementaPotenciaDeArma(){
-        heroeSuper.ganaPeleaContra(heroe);
-        Assert.assertTrue(superFuerza2.getPotencia() == 11);
+        heroe3.ganaPeleaContra(heroe);
+        Assert.assertTrue(heroe3.getPoder().getPotencia() == 11);  
+    }
+    
+    @Test
+    public void noEsDeConfianzaSegunPoder(){
+        heroe3.setPoder(mistico);
+        Assert.assertFalse(heroe3.esDeConfianza());
+        
     }
 
     // TODO add test methods here.

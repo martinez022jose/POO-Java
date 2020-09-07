@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Jose
  */
-public class Mistico extends Poder{
+public class Mistico implements Poder{
     private List<Poder> poderesAcumulados;
 
     public Mistico(){
@@ -31,6 +31,11 @@ public class Mistico extends Poder{
     public int totalPoderesAcumulados(){
         return this.poderesAcumulados.stream().mapToInt(poder->poder.otorgaPotencia()).sum();
     }
+    
+    @Override
+    public int getPotencia(){
+        return 0;
+    } 
     
     @Override
     public int otorgaPotencia(){

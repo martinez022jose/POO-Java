@@ -13,7 +13,7 @@ import Individuo.*;
  *
  * @author Jose
  */
-public class SuperFuerza extends Poder{
+public class SuperFuerza implements Poder{
     private int potencia;
     
     public SuperFuerza(int potencia){
@@ -21,14 +21,15 @@ public class SuperFuerza extends Poder{
    
     }
     
-    public int getPotencia(){
-        return this.potencia;
-    }
-    
     public void setPotencia(int potenciaNueva){
         this.potencia = potenciaNueva;
     }
-
+    
+    @Override
+    public int getPotencia(){
+        return this.potencia;
+    }
+   
     @Override
     public String toString() {
         return "SuperFuerza{" + "potencia=" + potencia + '}';

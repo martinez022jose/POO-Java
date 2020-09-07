@@ -11,11 +11,16 @@ import Individuo.*;
  *
  * @author Jose
  */
-public class Sabiduria extends Poder {
+public class Sabiduria implements Poder {
     private int cantidadBatallas;
     
     public Sabiduria(int cantidadBatallas){
         this.cantidadBatallas = cantidadBatallas;
+    }
+    
+    @Override
+    public int getPotencia(){
+        return 0;
     }
     
     @Override
@@ -25,6 +30,6 @@ public class Sabiduria extends Poder {
     
     @Override 
     public void incrementarRespecto(Individuo otro){
-        
+        // No sucede nada
     }
 }

@@ -26,11 +26,12 @@ public class Heroe extends Individuo{
     
     public Poder getPoder(){
         return this.poder;
-    }
+     }
+    
     
     @Override
     public int getPotencia(){
-        return this.getNivelDeEntrenamiento() + this.getpotenciaMasAlta() + this.poder.otorgaPotencia();
+        return this.getNivelDeEntrenamiento() + this.getpotenciaMasAlta() + this.getPoder().otorgaPotencia();
     }
     
     @Override
@@ -43,7 +44,7 @@ public class Heroe extends Individuo{
     @Override
     public boolean esDeConfianza(){
         if(SuperFuerza.class.isInstance(this.poder)){
-            return super.esDeConfianza() && this.poder.otorgaPotencia() < 100;
+            return super.esDeConfianza() && this.getPoder().otorgaPotencia() < 100;
         }
         
         if(Sabiduria.class.isInstance(this.poder)){
